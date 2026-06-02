@@ -1,0 +1,95 @@
+<!-- <div class="login">
+    <div class="login_page">
+        <div style="margin: 0% 20%; padding: 0% 5%;">
+            <div>
+                <img src="images/user_icon.jpg" width="5%" alt="profile" class="profile_img">
+            </div>
+            <div style="text-align: left;">
+
+                <div class="user_name">
+                    <label style="text-align: left-;">Email</label>
+                    <div>
+                        <input type="password" placeholder="Enter your Email Id" />
+                    </div>
+                </div>
+
+                <div class="password">
+                    <label>Password</label>
+                    <div>
+                        <input type="password" placeholder="Enter your password" />
+                    </div>
+                </div>
+                
+            </div>
+
+            <div>
+                <button class="login_button">
+                    Login
+                </button>
+            </div>
+        </div>
+
+        <div class="forgot_password">
+            <a>Forgot Password</a>
+        </div>
+    </div>
+</div> -->
+
+
+<div class="login-container">
+
+  <div class="login-card">
+
+    <div class="profile_section">
+      <img src="images/user_icon.jpg"  style="border-radius: 80%;box-shadow:0 8px 18px rgba(79, 70, 229, 0.3);" width="30%" alt="profile" class="profile_img"/>    
+    </div>
+    <div class="employee_header">
+        Employee Login
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+
+      <div class="form-group">
+        <label>Email</label>
+
+        <input type="email"  formControlName="email"  placeholder="Enter your Email Id"/>
+
+        <small class="error" *ngIf=" loginForm.get('email')?.touched && loginForm.get('email')?.errors?.['required']">Email is required </small>
+
+        <small class="error"*ngIf=" loginForm.get('email')?.touched && loginForm.get('email')?.errors?.['email']"> Enter valid email </small>
+
+      </div>
+
+      <!-- Password -->
+
+      <div class="form-group">
+
+        <label>Password</label>
+
+        <input type="password" formControlName="password" placeholder="Enter your password"/>
+
+        <small
+          class="error" *ngIf=" loginForm.get('password')?.touched && loginForm.get('password')?.errors?.['required'] " > Password is required </small>
+
+        <small class="error" *ngIf=" loginForm.get('password')?.touched && loginForm.get('password')?.errors?.['minlength'] "> Minimum 6 characters required </small>
+
+      </div>
+
+      <!-- Button -->
+
+      <button 
+        type="submit"
+        class="login-btn"
+      >
+        Login
+      </button>
+
+    </form>
+
+    <div class="forgot-password">
+      <a href="#">Forgot Password?</a>
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,115 @@
+<div class="payroll-container">
+
+  <div class="page-header">
+    <h2>Payroll</h2>
+    <p>View salary details and payslip history</p>
+  </div>
+
+  <!-- Employee Card -->
+
+  <div class="employee-card">
+
+    <div class="avatar">
+      {{ employee.name.charAt(0) }}
+    </div>
+
+    <div>
+      <h3>{{ employee.name }}</h3>
+      <p>{{ employee.employeeId }}</p>
+      <span>{{ employee.designation }}</span>
+    </div>
+
+  </div>
+
+  <!-- Net Salary Card -->
+
+  <div class="salary-card">
+
+    <div>
+      <h4>Current Month Net Salary</h4>
+      <h1>₹ {{ currentSalary.netSalary | number }}</h1>
+    </div>
+
+    <button class="download-btn">
+      Download Payslip
+    </button>
+
+  </div>
+
+  <!-- Salary Breakdown -->
+
+  <div class="breakdown-section">
+
+    <div class="breakdown-card">
+      <h3>₹ {{ currentSalary.basicSalary | number }}</h3>
+      <span>Basic Salary</span>
+    </div>
+
+    <div class="breakdown-card">
+      <h3>₹ {{ currentSalary.hra | number }}</h3>
+      <span>HRA</span>
+    </div>
+
+    <div class="breakdown-card">
+      <h3>₹ {{ currentSalary.allowances | number }}</h3>
+      <span>Allowances</span>
+    </div>
+
+    <div class="breakdown-card">
+      <h3>₹ {{ currentSalary.deductions | number }}</h3>
+      <span>Deductions</span>
+    </div>
+
+  </div>
+
+  <!-- Payslip History -->
+
+  <div class="history-card">
+
+    <div class="table-header">
+      <h3>Payslip History</h3>
+    </div>
+
+    <table>
+
+      <thead>
+        <tr>
+          <th>Month</th>
+          <th>Gross Salary</th>
+          <th>Deductions</th>
+          <th>Net Salary</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr *ngFor="let slip of payslips">
+
+          <td>{{ slip.month }}</td>
+          <td>₹ {{ slip.grossSalary | number }}</td>
+          <td>₹ {{ slip.deductions | number }}</td>
+          <td>₹ {{ slip.netSalary | number }}</td>
+
+          <td>
+            <span class="status-badge">
+              {{ slip.status }}
+            </span>
+          </td>
+
+          <td>
+            <button class="download-link">
+              Download
+            </button>
+          </td>
+
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>

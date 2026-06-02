@@ -1,0 +1,132 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.header{
+
+    width: 100%;
+    height: 100px;
+    padding: 0 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+}
+
+.search_container{
+    width: 70%
+}
+
+
+.search-field{
+    width: 100%;
+}
+
+::ng-deep .mat-mdc-form-field-subscript-wrapper{
+    display: none;
+}
+
+.profile-section{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.matInput{
+    font-family: 'Montserrat', sans-serif;
+}
+.employee-info{
+    text-align: right;
+}
+
+.welcome_text{
+    font-size: 13px;
+    font-family: 'Montserrat', sans-serif;
+    color: #6b7280;
+    margin-bottom: 2px;
+}
+
+.employee-name{
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+    color: #111827;
+    font-weight: 700;
+}
+
+.profile-img{
+
+    width: 50px;
+     cursor: pointer;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #6366f1;
+    box-shadow:0 4px 12px rgba(99,102,241,0.3);
+}
+
+@media screen and (max-width: 768px){
+
+    .header{
+        padding: 0 15px;
+    }
+
+    .search-container{
+        max-width: 220px;
+    }
+
+    .employee-name{
+        font-size: 14px;
+    }
+
+    .profile-img{
+        width: 42px;
+        height: 42px;
+    }
+}
+
+::ng-deep .mdc-notched-outline__leading{
+    border-radius: 14px 0 0 14px !important;
+}
+
+::ng-deep .mdc-notched-outline__trailing{
+    border-radius: 0 14px 14px 0 !important;
+}
+
+::ng-deep .mdc-notched-outline__leading,
+::ng-deep .mdc-notched-outline__notch,
+::ng-deep .mdc-notched-outline__trailing{
+
+    border-color: #d1d5db !important;
+}
+
+::ng-deep .mat-mdc-form-field:hover
+.mdc-notched-outline__leading,
+::ng-deep .mat-mdc-form-field:hover
+.mdc-notched-outline__notch,
+::ng-deep .mat-mdc-form-field:hover
+.mdc-notched-outline__trailing{
+    border-color: #9ca3af !important;
+}
+
+::ng-deep .mat-focused
+.mdc-notched-outline__leading,
+::ng-deep .mat-focused
+.mdc-notched-outline__notch,
+::ng-deep .mat-focused
+.mdc-notched-outline__trailing{
+    border-color: #6366f1 !important;
+    border-width: 2px !important;
+}
+
+::ng-deep .mat-mdc-text-field-wrapper{
+
+    background: #f9fafb !important;
+
+    border-radius: 14px !important;
+}
+
+::ng-deep .mat-mdc-form-field-subscript-wrapper{
+    display: none;
+}

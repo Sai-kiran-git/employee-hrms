@@ -1,0 +1,121 @@
+<div class="attendance-container">
+
+  <div class="page-header">
+    <h2>Attendance</h2>
+    <p>Track your attendance and working hours</p>
+  </div>
+
+  <!-- Employee Card -->
+
+  <div class="employee-card">
+
+    <div class="avatar">
+      {{ employee.name.charAt(0) }}
+    </div>
+
+    <div>
+      <h3>{{ employee.name }}</h3>
+      <p>{{ employee.employeeId }}</p>
+      <span>{{ employee.department }}</span>
+    </div>
+
+  </div>
+
+  <!-- Today Attendance -->
+
+  <div class="today-card">
+
+    <h3>Today's Attendance</h3>
+
+    <div class="attendance-grid">
+
+      <div>
+        <label>Check In</label>
+        <h4>{{ todayAttendance.checkIn }}</h4>
+      </div>
+
+      <div>
+        <label>Check Out</label>
+        <h4>{{ todayAttendance.checkOut }}</h4>
+      </div>
+
+      <div>
+        <label>Status</label>
+        <h4>{{ todayAttendance.status }}</h4>
+      </div>
+
+      <div>
+        <label>Working Hours</label>
+        <h4>{{ todayAttendance.workingHours }}</h4>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Monthly Summary -->
+
+  <div class="summary-section">
+
+    <div class="summary-card">
+      <h2>{{ monthlySummary.present }}</h2>
+      <span>Present</span>
+    </div>
+
+    <div class="summary-card">
+      <h2>{{ monthlySummary.absent }}</h2>
+      <span>Absent</span>
+    </div>
+
+    <div class="summary-card">
+      <h2>{{ monthlySummary.leave }}</h2>
+      <span>Leave</span>
+    </div>
+
+    <div class="summary-card">
+      <h2>{{ monthlySummary.late }}</h2>
+      <span>Late</span>
+    </div>
+
+  </div>
+
+  <!-- History -->
+
+  <div class="history-card">
+
+    <h3>Attendance History</h3>
+
+    <table>
+
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Check In</th>
+          <th>Check Out</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr *ngFor="let item of attendanceHistory">
+
+          <td>{{ item.date }}</td>
+          <td>{{ item.checkIn }}</td>
+          <td>{{ item.checkOut }}</td>
+
+          <td>
+            <span class="status">
+              {{ item.status }}
+            </span>
+          </td>
+
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>

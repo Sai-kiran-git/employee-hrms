@@ -1,0 +1,148 @@
+<div class="profile-container">
+
+  <div class="page-header">
+
+    <div>
+      <h2>My Profile</h2>
+      <p>Manage your personal information</p>
+    </div>
+
+    <button
+      *ngIf="!isEditing"
+      class="edit-btn"
+      (click)="toggleEdit()">
+      Edit Profile
+    </button>
+
+  </div>
+
+  <!-- Profile Card -->
+
+  <div class="profile-card">
+
+    <div class="profile-avatar">
+      {{ employee.firstName.charAt(0) }}
+    </div>
+
+    <h3>
+      {{ employee.firstName }} {{ employee.lastName }}
+    </h3>
+
+    <span>{{ employee.designation }}</span>
+
+  </div>
+
+  <!-- Form Section -->
+
+  <div class="form-card">
+
+    <div class="form-grid">
+
+      <div class="form-group">
+        <label>Employee ID</label>
+
+        <input
+          [(ngModel)]="employee.employeeId"
+          [disabled]="true"
+        />
+      </div>
+
+      <div class="form-group">
+        <label>First Name</label>
+
+        <input
+          [(ngModel)]="employee.firstName"
+          [disabled]="!isEditing"
+        />
+      </div>
+
+      <div class="form-group">
+        <label>Last Name</label>
+
+        <input
+          [(ngModel)]="employee.lastName"
+          [disabled]="!isEditing"
+        />
+      </div>
+
+      <div class="form-group">
+        <label>Email</label>
+
+        <input
+          [(ngModel)]="employee.email"
+          [disabled]="!isEditing"
+        />
+      </div>
+
+      <div class="form-group">
+        <label>Phone Number</label>
+
+        <input
+          [(ngModel)]="employee.phone"
+          [disabled]="!isEditing"
+        />
+      </div>
+
+      <div class="form-group">
+        <label>Department</label>
+
+        <input
+          [(ngModel)]="employee.department"
+          [disabled]="!isEditing"
+        />
+      </div>
+
+      <div class="form-group">
+        <label>Designation</label>
+
+        <input
+          [(ngModel)]="employee.designation"
+          [disabled]="!isEditing"
+        />
+      </div>
+
+      <div class="form-group">
+        <label>Joining Date</label>
+
+        <input
+          type="date"
+          [(ngModel)]="employee.joiningDate"
+          [disabled]="!isEditing"
+        />
+      </div>
+
+    </div>
+
+    <div class="form-group full-width">
+
+      <label>Address</label>
+
+      <textarea
+        rows="4"
+        [(ngModel)]="employee.address"
+        [disabled]="!isEditing">
+      </textarea>
+
+    </div>
+
+    <div
+      class="button-group"
+      *ngIf="isEditing">
+
+      <button
+        class="save-btn"
+        (click)="saveProfile()">
+        Save Changes
+      </button>
+
+      <button
+        class="cancel-btn"
+        (click)="toggleEdit()">
+        Cancel
+      </button>
+
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,61 @@
+span{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18 px;
+}
+.profile_section {
+    text-align: center;
+    padding: 10%;
+    margin: 15% 0%;
+}
+
+.profile-img {
+
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid white;
+    background: white;
+    padding: 6px;
+    box-shadow:0 8px 20px rgba(0, 0, 0, 0.18),
+        0 0 20px rgba(255, 255, 255, 0.8);
+}
+.sidebar{
+    padding: 10%;
+}
+
+.nav_links {
+    text-align: center;
+    gap: 10px;
+}
+
+/* Nav Item */
+
+.nav_item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+    color: #d1d5db;
+    padding: 5% 15%;
+    border-radius: 12px;
+    transition: 0.3s ease;
+}
+
+/* Hover */
+
+.nav_item:hover {
+    background-color: #1f2937;
+    color: white;
+}
+
+/* Active Route */
+
+.active {
+    background-color: #2563eb;
+    color: white;
+}
+
+/* Icons */
+
+.material-icons {
+    font-size: 22px;
+}
