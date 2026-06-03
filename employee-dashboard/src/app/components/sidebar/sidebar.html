@@ -1,7 +1,8 @@
 <div class="sidebar">
 
     <div class="profile_section">
-      <img src="images/user_icon.jpg"  style="border-radius: 80%;box-shadow:0 8px 18px rgba(79, 70, 229, 0.3);" width="50%" alt="profile" class="profile_img"/>    
+        <img src="images/user_icon.jpg" style="border-radius: 80%;box-shadow:0 8px 18px rgba(79, 70, 229, 0.3);"
+            width="50%" alt="profile" class="profile_img" />
     </div>
 
 
@@ -19,6 +20,10 @@
             <a routerLink="/dashboard/profile" routerLinkActive="active" class="nav_item"> <mat-icon>person</mat-icon>
                 <span>Profile</span> </a>
         </div>
+        <div style="margin-bottom: 10%;">
+            <a (click)="logout()" class="nav_item" style="cursor: pointer;">
+                <mat-icon>logout</mat-icon>
+                <span>Logout</span>
+            </a>
+        </div>
     </div>
-
-</div>
