@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { EmployeeApi } from '../../services/employee-api';
 
 @Component({
   selector: 'app-attendence',
@@ -8,7 +9,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './attendence.html',
   styleUrl: './attendence.css'
 })
-export class Attendence {
+export class Attendence implements OnInit {
 
   employee = {
     name: 'Sai Kiran',
@@ -16,39 +17,57 @@ export class Attendence {
     department: 'Engineering'
   };
 
-  todayAttendance = {
-    checkIn: '09:12 AM',
-    checkOut: '--',
-    status: 'Present',
-    workingHours: '07:25'
-  };
+  todayAttendance: any = {};
+  monthlySummary: any = {};
+  attendanceHistory: any[] = [];
 
-  monthlySummary = {
-    present: 22,
-    absent: 1,
-    leave: 2,
-    late: 3
-  };
+  loading = false;
 
-  attendanceHistory = [
-    {
-      date: '02-Jun-2026',
-      checkIn: '09:12 AM',
-      checkOut: '--',
-      status: 'Present'
-    },
-    {
-      date: '01-Jun-2026',
-      checkIn: '09:05 AM',
-      checkOut: '06:15 PM',
-      status: 'Present'
-    },
-    {
-      date: '31-May-2026',
-      checkIn: '09:40 AM',
-      checkOut: '06:00 PM',
-      status: 'Late'
-    }
-  ];
+  constructor(private api: EmployeeApi) {}
 
+  ngOnInit() {
+    this.loadAttendance();
+  }
+
+  loadAttendance() {
+    const empId = this.employee.employeeId;
+    this.loading = true;
+
+    // TODAY
+    this.api.getTodayAttendance(empId).subscribe({
+      next: (res: any) => {
+        this.todayAttendance = res.data;
+      }
+    });
+
+    // SUMMARY
+    this.api.getAttendanceSummary(empId).subscribe({
+      next: (res: any) => {
+        this.monthlySummary = res.data;
+      }
+    });
+
+    // HISTORY
+    this.api.getAttendanceHistory(empId).subscribe({
+      next: (res: any) => {
+        this.attendanceHistory = res.data;
+        this.loading = false;
+      },
+      error: () => {
+        this.loading = false;
+      }
+    });
+  }
+
+  checkIn() {
+    this.api.checkIn(this.employee.employeeId).subscribe(() => {
+      this.loadAttendance(); // refresh UI
+    });
+  }
+
+  checkOut() {
+    this.api.checkOut(this.employee.employeeId).subscribe(() => {
+      this.loadAttendance(); // refresh UI
+    });
+  }
 }

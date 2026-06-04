@@ -8,7 +8,7 @@ export class EmployeeApi {
 
   private baseUrl = '/api';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   // =====================================================
   // 🔐 AUTH APIs
@@ -114,8 +114,8 @@ export class EmployeeApi {
 
   getPayslipHistory(employeeId: string, page = 1, limit = 10) {
     let params = new HttpParams()
-      .set('page', page)
-      .set('limit', limit);
+      .set('page', page.toString())
+      .set('limit', limit.toString());
 
     return this.http.get(
       `${this.baseUrl}/payroll/history/${employeeId}`,

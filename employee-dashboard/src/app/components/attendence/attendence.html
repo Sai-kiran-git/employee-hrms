@@ -6,7 +6,6 @@
   </div>
 
   <!-- Employee Card -->
-
   <div class="employee-card">
 
     <div class="avatar">
@@ -21,8 +20,13 @@
 
   </div>
 
-  <!-- Today Attendance -->
+  <!-- Actions -->
+  <div class="action-buttons">
+    <button (click)="checkIn()">Check In</button>
+    <button (click)="checkOut()">Check Out</button>
+  </div>
 
+  <!-- Today Attendance -->
   <div class="today-card">
 
     <h3>Today's Attendance</h3>
@@ -31,22 +35,22 @@
 
       <div>
         <label>Check In</label>
-        <h4>{{ todayAttendance.checkIn }}</h4>
+        <h4>{{ todayAttendance?.checkIn || '--' }}</h4>
       </div>
 
       <div>
         <label>Check Out</label>
-        <h4>{{ todayAttendance.checkOut }}</h4>
+        <h4>{{ todayAttendance?.checkOut || '--' }}</h4>
       </div>
 
       <div>
         <label>Status</label>
-        <h4>{{ todayAttendance.status }}</h4>
+        <h4>{{ todayAttendance?.status || '--' }}</h4>
       </div>
 
       <div>
         <label>Working Hours</label>
-        <h4>{{ todayAttendance.workingHours }}</h4>
+        <h4>{{ todayAttendance?.workingHours || '--' }}</h4>
       </div>
 
     </div>
@@ -54,33 +58,31 @@
   </div>
 
   <!-- Monthly Summary -->
-
   <div class="summary-section">
 
     <div class="summary-card">
-      <h2>{{ monthlySummary.present }}</h2>
+      <h2>{{ monthlySummary?.present || 0 }}</h2>
       <span>Present</span>
     </div>
 
     <div class="summary-card">
-      <h2>{{ monthlySummary.absent }}</h2>
+      <h2>{{ monthlySummary?.absent || 0 }}</h2>
       <span>Absent</span>
     </div>
 
     <div class="summary-card">
-      <h2>{{ monthlySummary.leave }}</h2>
+      <h2>{{ monthlySummary?.leave || 0 }}</h2>
       <span>Leave</span>
     </div>
 
     <div class="summary-card">
-      <h2>{{ monthlySummary.late }}</h2>
+      <h2>{{ monthlySummary?.late || 0 }}</h2>
       <span>Late</span>
     </div>
 
   </div>
 
   <!-- History -->
-
   <div class="history-card">
 
     <h3>Attendance History</h3>
