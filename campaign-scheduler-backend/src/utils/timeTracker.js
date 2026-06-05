@@ -1,7 +1,7 @@
-const startTimer = () => Date.now();
+// const startTimer = () => Date.now();
 
-const endTimer = (startTime) => {
-  return Date.now() - startTime;
-};
+// const endTimer = (startTime) => {
+//   return Date.now() - startTime;
+// };
 
-module.exports = { startTimer, endTimer };
+// module.exports = { startTimer, endTimer };

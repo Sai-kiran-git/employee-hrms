@@ -1,27 +1,27 @@
-const nodemailer = require("nodemailer");
+// const nodemailer = require("nodemailer");
 
-let transporter = null;
+// let transporter = null;
 
-const createTransporter = async () => {
-  if (transporter) return transporter;
+// const createTransporter = async () => {
+//   if (transporter) return transporter;
 
-  const testAccount = await nodemailer.createTestAccount();
+//   const testAccount = await nodemailer.createTestAccount();
 
-  transporter = nodemailer.createTransport({
-    host: "smtp.ethereal.email",
-    port: 587,
-    secure: false,
-    auth: {
-      user: testAccount.user,
-      pass: testAccount.pass
-    },
-    connectionTimeout: 10000,
-    greetingTimeout: 10000,
-    socketTimeout: 10000,
-  });
+//   transporter = nodemailer.createTransport({
+//     host: "smtp.ethereal.email",
+//     port: 587,
+//     secure: false,
+//     auth: {
+//       user: testAccount.user,
+//       pass: testAccount.pass
+//     },
+//     connectionTimeout: 10000,
+//     greetingTimeout: 10000,
+//     socketTimeout: 10000,
+//   });
 
-  console.log("📧 Ethereal account:", testAccount.user);
-  return transporter;
-};
+//   console.log("📧 Ethereal account:", testAccount.user);
+//   return transporter;
+// };
 
-module.exports = { createTransporter };
+// module.exports = { createTransporter };

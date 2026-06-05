@@ -1,16 +1,10 @@
-const express = require('express');
-const cors = require('cors');
-const campaignRoutes = require('./routes/campaignRoutes');
-
+const express = require("express");
 const app = express();
 
-app.use(cors()); // ✅ add this
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.json({ message: 'Campaign Scheduler API Running' });
-});
+const standardEventRoutes = require("./routes/standardEventRoute");
 
-app.use('/api/campaigns', campaignRoutes);
+app.use("/api/events", standardEventRoutes);
 
 module.exports = app;

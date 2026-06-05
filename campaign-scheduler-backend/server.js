@@ -1,17 +1,22 @@
-require('dotenv').config();
+require("dotenv").config();
 
-const app = require('./src/app');
-const connectDB = require('./src/config/db');
-require('./src/workers/emailworker'); // ✅ start the worker
+const app = require("./src/app");
+const connectDB = require("./src/config/db");
 
+// ✅ IMPORT CRON PROPERLY
+const { startStandardEventsCron } = require("./src/utils/standardEventCron");
+
+// connect DB
 connectDB();
 
+// start cron
+startStandardEventsCron();
 
 const PORT = process.env.PORT || 5000;
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
-
 // require('dotenv').config();
 
 // const app = require('./src/app');
